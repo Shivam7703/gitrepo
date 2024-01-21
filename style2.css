@@ -1,0 +1,239 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: black;
+    cursor: none;
+}
+.custom-cursor {
+    position: fixed;
+    width: 65px;
+    height: 65px;
+    background-image: radial-gradient( rgb(255, 64, 0),rgba(255, 64, 0, 0.5),rgba(255, 64, 0, 0.1),  transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.section1{
+    width: 100vw;
+    height: 100vh;
+    background: url(img/bg2.jpg) no-repeat center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form{
+        background-color: rgba(17, 17, 17, 0.8);
+        width: 80vw;
+        max-width: 400px;
+        border-radius: 25px;
+        margin: 5vw;
+        padding: 5vw;
+        input{
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            background-color: transparent;
+            border-radius: 20px;
+            border: 2px solid white;
+            font-size: 1.2rem;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            margin:10px 0;
+        }
+        button{
+            margin-top: 10px;
+            border: none;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+            padding: 10px ;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: rgb(241, 6, 6);
+            transition: ease-in-out 0.6s;
+           }
+           button:hover{
+            background-color: white;
+            color: black;
+        }
+    }
+}
+
+#astro1{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    animation: move 3s ease-in-out infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(2%);
+    }
+    50% {
+        transform: translateY(-7%);
+    }
+    100% {
+        transform: translateY(2%);
+    }
+
+}
+#astro2{
+    position: fixed;
+    bottom: -250px;
+    right:  0px;
+    z-index: 3;
+    animation: move2 15s ease-in-out infinite;
+}
+@keyframes move2 {
+    0% {
+        transform: translateY(70%);
+    }
+    50% {
+        transform: translateY(-20%);
+    
+    }
+100%{
+    transform: translateY(70%);
+}}
+
+#sec2{
+    display: none;
+}
+.detail-s{
+    text-align: center;
+    background-color: #191919;
+    width: calc(100vw - 10vw);
+    padding: 2vw 5vw;
+    height: auto;
+    
+}
+.image-s{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+#user-dp{
+    padding: 10px;
+    border: 2px solid white;
+   max-width: 180px;
+   max-height: 180px;
+   width: 80vw;
+   height: 80vw;
+    border-radius: 50%;
+    margin: 0 4vw;
+}
+.bio{
+    color: white;
+    text-align: left;
+}
+h1{
+    font-size: 3rem;
+    font-family: 'Open Sans', sans-serif;
+}
+h3{
+   color: aqua;
+    font-size: 1.9rem;
+}
+p{
+    font-size: 19px;
+    margin: 9px 0;
+}
+#repo{
+    word-break: break-all;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    background-color: white;
+    padding: 2px 20px;
+    margin: 19px 0;
+}
+.repo-contain{
+    padding: 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: space-around;
+    height: 55vh;
+    overflow-y: auto;
+    margin: 27px 0;
+    border: 2px solid white;
+}
+.repo-contain::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.repo-contain {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.loader {
+    border: 6px solid #fcfafa;
+    border-top: 6px solid #191919;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    display: none;
+    margin: 20px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.repo-d{
+background-color: rgb(254, 254, 254);
+width: 80vw;
+max-width: 240px;
+padding: 10px;
+margin: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 945px) {
+    .image-s {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .bio{
+        text-align: center;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 630px) {
+    #astro1{
+        width: 180px;
+    }
+    #astro2{
+        width: 240px;
+    }
+}
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Repository</title>
+    <link rel="stylesheet" href="style2.css">
+    <!-- jQuery Ripples JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+</head>
+<body>
+   
+    <div class="custom-cursor"></div>
+    <div class="loader" id="loader"></div>
+
+
+    <div class="section1" id="sec1">
+        <img src="img/astro.png" id="astro1" alt="">
+        <img src="img/astro2.png" id="astro2" alt="">
+        <form onsubmit="fetchRepositories(event)">
+            <h2 style="color: aliceblue; text-align: center; font-size: 2rem; margin-bottom: 20px;">Search Repositories</h2>
+            <input type="text" id="username" placeholder="Enter User's Name">
+            <input type="number" id="pagecount" max="100" placeholder="Enter Repo's Count">
+            <button>SUBMIT</button>
+        </form>
+    </div>
+
+
+
+    <div class="loader" id="loader"></div>
+
+
+
+
+    <div class="detail-s" id="sec2">
+        <div class="image-s">
+            <img src="img/bg2.jpg" id="user-dp" alt="">
+            <div class="bio">
+                <h1 id="name"></h1>
+                <h3 id="location"></h3>
+                <p id="email"></p>
+                <div id="repo"></div>
+            </div>
+        </div>
+
+
+    <input type="text" oninput="fetch2(this.value)" placeholder="Type here search by keywords" style="padding: 8px 20px; color: black; font-weight: 600; font-size: 20px;">
+
+
+        <div class="repo-contain" id="contain">      
+        </div>
+        
+    </div>
+
+
+    <script>$(document).ready(function(){
+        $(".section1").ripples({
+        resolution: 200,
+        perturbance: .004,
+    });
+    });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const cursor = document.querySelector('.custom-cursor');
+    
+        document.addEventListener('mousemove', function (e) {
+            const x = e.clientX;
+            const y = e.clientY;
+    
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+        });
+    
+    });</script>
+
+<script src="script2.js"></script>
+    <!-- jQuery -->
+
+
+</body>
+</html>
