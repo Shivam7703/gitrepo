@@ -1,20 +1,25 @@
+const form = document.getElementById("frm");
+form.addEventListener("submit", fetchRepositories);
+
+
 
 const user = document.getElementById("username");
 const per = document.getElementById("pagecount");
 const img = document.getElementById("user-dp");
 
 function fetchRepositories(event) {
-    event.preventDefault(); 
+    event.preventDefault(); // Prevents the default form submission behavior
 
     const username = user.value;
 
-   
+    // Remove the "page" query parameter from the apiUrl
     const apiUrl = `https://api.github.com/users/${username}`;
     const headers = {
-        Authorization: 'Bearer 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' 
+        Authorization: 'Bearer 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'/
+        "X-GitHub-Api-Version: 2022-11-28" // Replace with your GitHub token
     };
 
- 
+    // Assume you have a loader element defined
     const section1 = document.getElementById("sec1");
     section1.style.display = 'none';
     const loader = document.getElementById("loader");
@@ -43,9 +48,11 @@ function fetch2(word) {
     const perPage = per.value;
     console.log(word);
 
+    // Construct the GitHub API URL with the name filter
     const apiUrl2 = `https://api.github.com/search/repositories?q=${word}+user:${username}&per_page=${perPage}`;
     const headers = {
-        Authorization: 'Bearer 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' 
+        Authorization: 'Bearer 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'/
+        "X-GitHub-Api-Version: 2022-11-28" // Replace with your GitHub token
     };
 
     fetch(apiUrl2, { headers })
@@ -59,7 +66,7 @@ function fetch2(word) {
             const section2 = document.getElementById("sec2");
             section2.style.display = 'block';
             console.log(data);
-            display2(data.items); 
+            display2(data.items); // Use data.items as it is the array of repositories in the search response
         })
         .catch(error => console.error('Error fetching repositories:', error));
 }
@@ -82,9 +89,11 @@ function display2(data) {
     data.forEach(element => {
         const repo = document.createElement('div');
         repo.className = 'repo-d';
-        repo.innerHTML = ` <h2>${element.name}</h2>
-    <p>${element.description}</p>
-    <div style="background-color:red; padding:5px 9px; color:white;">${element.language}</div></p>`;
+        repo.innerHTML = `<h2>${element.name}</h2>
+                 <p>${element.description}</p>
+                 <div style="background-color:red; padding:5px 9px; color:white;">${element.language}</div>`;
+
         document.getElementById("contain").appendChild(repo);
     });
 }
+
