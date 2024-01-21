@@ -4,17 +4,17 @@ const per = document.getElementById("pagecount");
 const img = document.getElementById("user-dp");
 
 function fetchRepositories(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
+    event.preventDefault(); 
 
     const username = user.value;
 
-    // Remove the "page" query parameter from the apiUrl
+   
     const apiUrl = `https://api.github.com/users/${username}`;
     const headers = {
-        Authorization: 'Bearer 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' // Replace with your GitHub token
+        Authorization: 'Bearer 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' 
     };
 
-    // Assume you have a loader element defined
+ 
     const section1 = document.getElementById("sec1");
     section1.style.display = 'none';
     const loader = document.getElementById("loader");
@@ -43,10 +43,9 @@ function fetch2(word) {
     const perPage = per.value;
     console.log(word);
 
-    // Construct the GitHub API URL with the name filter
     const apiUrl2 = `https://api.github.com/search/repositories?q=${word}+user:${username}&per_page=${perPage}`;
     const headers = {
-        Authorization: 'Bearer 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' // Replace with your GitHub token
+        Authorization: 'Bearer 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' 
     };
 
     fetch(apiUrl2, { headers })
@@ -60,7 +59,7 @@ function fetch2(word) {
             const section2 = document.getElementById("sec2");
             section2.style.display = 'block';
             console.log(data);
-            display2(data.items); // Use data.items as it is the array of repositories in the search response
+            display2(data.items); 
         })
         .catch(error => console.error('Error fetching repositories:', error));
 }
