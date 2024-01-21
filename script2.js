@@ -11,7 +11,7 @@ function fetchRepositories(event) {
     // Remove the "page" query parameter from the apiUrl
     const apiUrl = `https://api.github.com/users/${username}`;
     const headers = {
-        Authorization: 'Bearer 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' // Replace with your GitHub token
+        Authorization: 'Bearer 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' // Replace with your GitHub token
     };
 
     // Assume you have a loader element defined
@@ -46,7 +46,7 @@ function fetch2(word) {
     // Construct the GitHub API URL with the name filter
     const apiUrl2 = `https://api.github.com/search/repositories?q=${word}+user:${username}&per_page=${perPage}`;
     const headers = {
-        Authorization: 'Bearer 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' // Replace with your GitHub token
+        Authorization: 'Bearer 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' // Replace with your GitHub token
     };
 
     fetch(apiUrl2, { headers })
